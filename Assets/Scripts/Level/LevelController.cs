@@ -8,7 +8,8 @@ public class LevelController : MonoBehaviour
     [SerializeField] private GenerateLevelConfig generateLevelConfig = default;
     private List<GameObject> floor;
 
-    public async void Start()
+
+    public async void Awake()
     {
         Assert.IsNotNull(generateLevelConfig, "нет конфига генерации уровня");
         floor = new List<GameObject>((int)(generateLevelConfig.GetLevelSize().x * generateLevelConfig.GetLevelSize().y));
@@ -36,7 +37,5 @@ public class LevelController : MonoBehaviour
             height = 0;
         }
 
-        //расставляем 
-        for
     }
 }
