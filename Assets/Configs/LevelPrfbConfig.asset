@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52a60098084f7a24db62fea26238c715, type: 3}
+  m_Name: LevelPrfbConfig
+  m_EditorClassIdentifier: 
+  fieldSize: {x: 15, y: 30}
+  IsHaveCentralVertical: 1
+  levelPrefabsReferences:
+  - Name: Floor Default
+    LevelPrefabType: 1
+    assetReference:
+      m_AssetGUID: acdbdb24d658638408e8f3edb976632d
+      m_SubObjectName: 
+  step: 1
