@@ -17,7 +17,12 @@ public class GenerateLevelConfig : ScriptableObject
 
     [Header("шаг с которым строим сетку")]
     [SerializeField] private float step = 1;
-    public float Step => step; 
+
+    [Header("Высота по Y для мобов")]
+    [SerializeField] private float spawnActorsHeight = 1.5f;
+
+    public float Step => step;
+    public float SpawnActorsHeight => spawnActorsHeight;
 
 
     //отсюда достаём нужный префаб для сборки уровня, в будущем можно расширить получения результата рандомно, или с определенной графической темой

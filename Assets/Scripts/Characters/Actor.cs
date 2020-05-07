@@ -1,30 +1,32 @@
-﻿using UnityEngine;
+﻿using Components;
+using UnityEngine;
+using Behaviours;
 
 namespace Characters
 {
-    public abstract class Actor : MonoBehaviour, ICanBePaused
+    public abstract class Actor: MonoBehaviour, ICanBePaused 
     {
-        private AttackBehaviour<ICanAttack> attackBehaviour;
-        private MoveBehaviour<IMovable> moveBehaviour;
+        private IAttackBehaviour attackBehaviour;
+        private IMoveBehaviour moveBehaviour;
 
         protected bool isHaveAttack { get; private set; }
         protected bool isHaveMove { get; private set; }
 
         private void Start()
         {
+            GlobalCommander.Commander.RegisterObjectByEvent<ICanBePaused>(this, true);
             Init();
         }
 
         protected abstract void Init();
 
-        protected void SetAttackBehaviour(AttackBehaviour<ICanAttack> attackBehaviour)
+        protected void SetAttackBehaviour(IAttackBehaviour attackBehaviour) 
         {
             if (attackBehaviour == null)
             {
-                Debug.LogError("нет валидного аттак бихейвера на смену " + gameObject.name);
+                Debug.LogError("нет валидного аттак бихейвера " + gameObject.name);
                 return;
             }
-
 
             if (this.attackBehaviour != null)
                 this.attackBehaviour.Dispose();
@@ -33,11 +35,11 @@ namespace Characters
             isHaveAttack = true;
         }
 
-        protected void SetMoveBehaviour(MoveBehaviour<IMovable> moveBehaviour)
+        protected void SetMoveBehaviour(IMoveBehaviour moveBehaviour)
         {
             if (moveBehaviour == null)
             {
-                Debug.LogError("нет валидного мув бихейвера на смену " + gameObject.name);
+                Debug.LogError("нет валидного мув бихейвера на  " + gameObject.name);
                 return;
             }
 

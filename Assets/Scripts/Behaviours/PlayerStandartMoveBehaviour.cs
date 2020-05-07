@@ -1,12 +1,13 @@
-﻿using HECS.Controllers;
-using System;
+﻿using Behaviours;
+using Components;
+using HECS.Controllers;
 using UnityEngine;
 
-namespace Characters
+namespace Behaviours
 {
-    public class PlayerStandartMoveBehaviour : MoveBehaviour<IMovable>
+    public class PlayerStandartMoveBehaviour : MoveBehaviour<IMoveAndRotate>
     {
-        public PlayerStandartMoveBehaviour(IMovable movable) : base(movable)
+        public PlayerStandartMoveBehaviour(IMoveAndRotate movable) : base(movable)
         {
         }
 

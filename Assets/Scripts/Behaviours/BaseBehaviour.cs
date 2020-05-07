@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace Characters
+namespace Behaviours
 {
-    public abstract class BaseBehaviour : IDisposable
+    public abstract class BaseBehaviour : IBehaviour
     {
         public abstract void Update();
         public abstract void Pause();
@@ -12,5 +12,12 @@ namespace Characters
         {
             GC.SuppressFinalize(this);
         }
+    }
+
+    public interface IBehaviour : IDisposable
+    {
+        void Update();
+        void Pause();
+        void UnPause();
     }
 }

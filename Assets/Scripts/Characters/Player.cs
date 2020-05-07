@@ -1,11 +1,13 @@
-﻿using UnityEngine;
+﻿using Behaviours;
+using Components;
+using UnityEngine;
 namespace Characters
 {
     public class Player : Actor
     {
         protected override void Init()
         {
-            if (TryGetComponent<IMovable>(out var movable))
+            if (TryGetComponent<IMoveAndRotate>(out var movable))
                 SetMoveBehaviour(new PlayerStandartMoveBehaviour(movable));
             else
                 Debug.LogError("нет компонента перемещения у " + gameObject.name); 

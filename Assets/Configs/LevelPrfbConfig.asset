@@ -21,3 +21,4 @@ MonoBehaviour:
       m_AssetGUID: acdbdb24d658638408e8f3edb976632d
       m_SubObjectName: 
   step: 1
+  spawnActorsHeight: 1.5

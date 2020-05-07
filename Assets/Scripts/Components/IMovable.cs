@@ -1,10 +1,13 @@
 ﻿using UnityEngine;
 
-namespace Characters
+namespace Components
 {
-    public interface IMovable : IHaveTransform, IHaveMoveSpeed, IHaveRotationSpeed
+    public interface IMovable : IHaveTransform, IHaveMoveSpeed 
     {
+    }
 
+    public interface IMoveAndRotate : IMovable, IHaveRotationSpeed
+    {
     }
 
     public enum MoveStates { DEFAULT, WAIT, PATROL, FOLLOW, PAUSE, UNPAUSE, }
