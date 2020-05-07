@@ -1,9 +1,8 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Characters
 {
-    public abstract class Actor : MonoBehaviour 
+    public abstract class Actor : MonoBehaviour, ICanBePaused
     {
         private AttackBehaviour<ICanAttack> attackBehaviour;
         private MoveBehaviour<IMovable> moveBehaviour;
@@ -11,14 +10,14 @@ namespace Characters
         protected bool isHaveAttack { get; private set; }
         protected bool isHaveMove { get; private set; }
 
-        private void Awake()
+        private void Start()
         {
             Init();
         }
 
         protected abstract void Init();
 
-        protected void SetAttackBehaviour(AttackBehaviour<ICanAttack> attackBehaviour) 
+        protected void SetAttackBehaviour(AttackBehaviour<ICanAttack> attackBehaviour)
         {
             if (attackBehaviour == null)
             {
@@ -33,8 +32,8 @@ namespace Characters
             this.attackBehaviour = attackBehaviour;
             isHaveAttack = true;
         }
-        
-        protected void SetMoveBehaviour(MoveBehaviour<IMovable> moveBehaviour) 
+
+        protected void SetMoveBehaviour(MoveBehaviour<IMovable> moveBehaviour)
         {
             if (moveBehaviour == null)
             {
@@ -57,73 +56,24 @@ namespace Characters
             if (isHaveMove)
                 moveBehaviour.Update();
         }
-    }
 
-    public class Player : Actor
-    {
-
-    }
-
-
-    public abstract class Behaviour : IDisposable
-    {
-        public abstract void Update();
-        public abstract void Pause();
-        public abstract void UnPause();
-
-        public virtual void Dispose()
+        public void SetPause(bool state)
         {
-            GC.SuppressFinalize(this);
+            if (state)
+            {
+                attackBehaviour.Pause();
+                moveBehaviour.Pause();
+            }
+            else
+            {
+                attackBehaviour.UnPause();
+                moveBehaviour.UnPause();
+            }
         }
     }
 
-    public abstract class AttackBehaviour<T> : Behaviour where T : ICanAttack
+    public interface ICanBePaused
     {
-        protected T attacker;
-        protected AttackStates state;
-
-        protected AttackBehaviour(T attacker)
-        {
-            this.attacker = attacker;
-        }
-    }
-
-    public abstract class MoveBehaviour<T> : Behaviour where T: IMovable
-    {
-        protected T movable;
-        protected MoveStates state;
-
-        protected MoveBehaviour(T movable)
-        {
-            this.movable = movable;
-        }
-    }
-
-    public enum AttackStates { DEFAULT, WAIT, ATTACK, ENDATTACK, PAUSE, UNPAUSE, }
-    public enum MoveStates { DEFAULT, WAIT, PATROL, FOLLOW, PAUSE, UNPAUSE, }
-
-    public interface IMovable : IHaveTransform, IHaveMoveSpeed, IHaveRotationSpeed
-    {
-
-    }
-
-    public interface IHaveTransform
-    {
-        Transform Transform { get; }
-    }
-
-    public interface IHaveMoveSpeed
-    {
-        float MoveSpeed { get; }
-    }
-
-    public interface IHaveRotationSpeed
-    {
-        float RotationSpeed { get; }
-    }
-
-    public interface ICanAttack
-    {
-
+        void SetPause(bool state);
     }
 }

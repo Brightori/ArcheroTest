@@ -68,7 +68,7 @@ namespace HECS.Controllers
         private void Start()
         {
             cameraMain = Camera.main;
-            GlobalEventAggregator.EventAggregator.RegisterInject<InputController>(this);
+            GlobalCommander.Commander.RegisterInject<InputController>(this);
         }
 
         // Update is called once per frame
