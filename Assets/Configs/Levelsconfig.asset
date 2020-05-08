@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cbe2ec94bfc6d7942ae54e2f88833cdc, type: 3}
-  m_Name: PatrolConfig
+  m_Script: {fileID: 11500000, guid: d73b6d9b8d2b5704fac76fdfc1935529, type: 3}
+  m_Name: Levelsconfig
   m_EditorClassIdentifier: 
-  patrolRange: 5
-  waitBeforeNextpatrol: 1
-  patrolRandom: 1
+  levels:
+  - m_AssetGUID: b7b23bed1550e50468034c3ee8d6998a
+    m_SubObjectName: 

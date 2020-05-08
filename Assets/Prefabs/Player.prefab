@@ -154,10 +154,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dmg: 30
-  attackInterval: 0.3
+  attackInterval: 1
   projectile:
     m_AssetGUID: 2e779b74a3d8e4b4982017694a5547b0
     m_SubObjectName: 
+  attackMoveSpeed: 3
 --- !u!1 &2571821679480114698
 GameObject:
   m_ObjectHideFlags: 0

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7255933692190590466}
   - component: {fileID: 1002472305118456617}
   - component: {fileID: 3918127185909285332}
+  - component: {fileID: -5424020765462879552}
   m_Layer: 0
   m_Name: AttackProjectile
   m_TagString: Untagged
@@ -104,5 +105,50 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1dcacc6a46217f749b4de45bc4b88426, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trajectory:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.46146613
+      value: 0.98819685
+      inSlope: 0.80184555
+      outSlope: 0.80184555
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.121074766
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1.0087891
+      value: -0.04716873
+      inSlope: -3.0673285
+      outSlope: -3.0673285
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.09054853
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &-5424020765462879552
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6241622531083790268}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70e88ff30028def4cab304c770f67722, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

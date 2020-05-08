@@ -16,7 +16,13 @@ MonoBehaviour:
   m_Data:
     m_SerializedData: []
   m_GUID: 03e7856595c2d7d46a946c1af1766f36
-  m_SerializeEntries: []
+  m_SerializeEntries:
+  - m_GUID: de96c12ad67f88f48a692e0c8a963c9d
+    m_Address: Assets/Prefabs/EnemyBase.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: a0b3046e6853fc84894e35b22b9ef9fd, type: 2}
   m_SchemaSet:

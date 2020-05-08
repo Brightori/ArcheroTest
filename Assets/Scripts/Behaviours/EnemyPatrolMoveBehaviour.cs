@@ -7,6 +7,7 @@ namespace Behaviours
     public class EnemyPatrolMoveBehaviour : MoveBehaviour<IMoveAndRotate>
     {
         private readonly EnemyPatrolConfig enemyPatrolConfig;
+        private LevelController levelController; 
 
         public EnemyPatrolMoveBehaviour(IMoveAndRotate movable, EnemyPatrolConfig enemyPatrolConfig) : base(movable)
         {
@@ -32,7 +33,7 @@ namespace Behaviours
                     break;
                 case MoveStates.PATROL:
                     break;
-                case MoveStates.FOLLOW:
+                case MoveStates.MOVE:
                     break;
                 case MoveStates.PAUSE:
                     break;

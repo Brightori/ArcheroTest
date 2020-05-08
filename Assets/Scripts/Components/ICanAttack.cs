@@ -18,11 +18,26 @@ namespace Components
         float AttackMoveSpeed { get; }
     }
 
-    public interface IProjectile : IDmg, IMovable
+    public interface IBallisticProjectile : IDmg, IMovable, IHaveTrajectory, IReady, IHaveTarget
     {
         void SetDmg(float dmg);
         void SetMoveSpeed(float moveSpeed);
         void SetTarget(Vector3 target);
+    }
+
+    public interface IHaveTarget
+    {
+        Vector3 Target { get; }
+    }
+
+    public interface IReady
+    {
+        bool IsReady { get; }
+    }
+
+    public interface IHaveTrajectory
+    {
+        AnimationCurve GetTrajectory { get; }
     }
 
     public interface IDmg

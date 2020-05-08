@@ -10,15 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 52a60098084f7a24db62fea26238c715, type: 3}
-  m_Name: LevelPrfbConfig
+  m_Name: GenerateLevelConfig
   m_EditorClassIdentifier: 
   fieldSize: {x: 15, y: 30}
   IsHaveCentralVertical: 1
   levelPrefabsReferences:
   - Name: Floor Default
     LevelPrefabType: 1
-    assetReference:
-      m_AssetGUID: acdbdb24d658638408e8f3edb976632d
-      m_SubObjectName: 
+    assetReference: {fileID: 6360271220486635419, guid: acdbdb24d658638408e8f3edb976632d,
+      type: 3}
   step: 1
   spawnActorsHeight: 1.5

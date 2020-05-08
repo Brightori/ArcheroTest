@@ -10,24 +10,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
-  m_Name: LevelPrfbs
+  m_Name: Projectiles
   m_EditorClassIdentifier: 
-  m_GroupName: LevelPrfbs
+  m_GroupName: Projectiles
   m_Data:
     m_SerializedData: []
-  m_GUID: 83af068cb2958dc43b97de74317319cb
+  m_GUID: 47b680f1c02e65a4b9f15a089b8c79ca
   m_SerializeEntries:
-  - m_GUID: b7b23bed1550e50468034c3ee8d6998a
-    m_Address: Level
+  - m_GUID: 2e779b74a3d8e4b4982017694a5547b0
+    m_Address: Assets/Prefabs/AttackProjectile.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
-    m_MainAsset: {fileID: 133376528258583019, guid: b7b23bed1550e50468034c3ee8d6998a,
-      type: 3}
-    m_TargetAsset: {fileID: 133376528258583019, guid: b7b23bed1550e50468034c3ee8d6998a,
-      type: 3}
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: a0b3046e6853fc84894e35b22b9ef9fd, type: 2}
   m_SchemaSet:
     m_Schemas:
-    - {fileID: 11400000, guid: 0e9d57fe633609f47b0a224ff803d360, type: 2}
-    - {fileID: 11400000, guid: 9056918afa0071c4bba14f9b19a4ec68, type: 2}
+    - {fileID: 11400000, guid: d1043c33d6e9ae94ea6a00f674a0e515, type: 2}
+    - {fileID: 11400000, guid: 74dd7b99e93064b4496b09e036645b80, type: 2}

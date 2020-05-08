@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using System.Threading.Tasks;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 
@@ -25,12 +26,10 @@ public class GenerateLevelConfig : ScriptableObject
     public float SpawnActorsHeight => spawnActorsHeight;
 
 
-    //отсюда достаём нужный префаб для сборки уровня, в будущем можно расширить получения результата рандомно, или с определенной графической темой
-    //также я тут использую адресейблы, чтобы доставать в память только то что нужно, они работают асинхронно, в большинстве случаев можно также использовать по колбеку
-    public async Task<GameObject> GetLevelPrfb(LevelPrefabType levelPrefabType, Vector3 coord, Transform parent)
+    public void GetLevelPrfb(LevelPrefabType levelPrefabType, Vector3 coord, Transform parent)
     {
-        return await levelPrefabsReferences.FirstOrDefault(x => x.LevelPrefabType == levelPrefabType).
-                assetReference.InstantiateAsync(coord, Quaternion.identity, parent).Task;
+        var prfb = PrefabUtility.InstantiatePrefab(levelPrefabsReferences.FirstOrDefault(x => x.LevelPrefabType == levelPrefabType).assetReference, parent);
+        (prfb as GameObject).transform.position = coord;
     }
 
     //тут проверяем размер карты и отдаем с учётом вертикальной линии для персонажа 
@@ -51,7 +50,7 @@ public struct LevelPrefabsReference
 {
     public string Name;
     public LevelPrefabType LevelPrefabType;
-    public AssetReference assetReference;
+    public GameObject assetReference;
 }
 
 public enum LevelPrefabType

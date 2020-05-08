@@ -38,7 +38,7 @@ namespace Behaviours
                 case AttackStates.ATTACK:
                     var go = await attacker.GetProjectile(attacker.ShootPosition);
 
-                    if (go.TryGetComponent<IProjectile>(out var prj))
+                    if (go.TryGetComponent<IBallisticProjectile>(out var prj))
                         SetupProjectile(prj);
                     else
                         Debug.LogError("нет проджектайл компонента");
@@ -56,7 +56,7 @@ namespace Behaviours
         }
 
         //тут сетапим проджектайл, для демеджа и скорости проджектайла могут быть модификаторы, в будущем будем учитывать это здесь
-        private void SetupProjectile(IProjectile projectile)
+        private void SetupProjectile(IBallisticProjectile projectile)
         {
             projectile.SetDmg(attacker.Dmg);
             projectile.SetMoveSpeed(attacker.AttackMoveSpeed);

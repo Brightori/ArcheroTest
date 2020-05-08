@@ -10,7 +10,7 @@ namespace Components
     {
     }
 
-    public enum MoveStates { DEFAULT, WAIT, PATROL, FOLLOW, PAUSE, UNPAUSE, }
+    public enum MoveStates { DEFAULT, WAIT, PATROL, MOVE, PAUSE, UNPAUSE, }
 
     public interface IHaveTransform
     {
