@@ -37,7 +37,7 @@ namespace Components
 
     public interface IHaveTrajectory
     {
-        AnimationCurve GetTrajectory { get; }
+        float GetTrajectoryHeight { get; }
     }
 
     public interface IDmg

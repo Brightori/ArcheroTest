@@ -1,7 +1,6 @@
 ﻿using Components;
 using Configs;
 using GlobalCommander;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Assertions;
 

@@ -1,5 +1,6 @@
-﻿using Boo.Lang;
-using Configs;
+﻿using Configs;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 [DefaultExecutionOrder(-1)]
@@ -9,6 +10,8 @@ public class EnemyController : MonoBehaviour
     private LevelController levelController { get; set; } = default;
     public List<GameObject> enemys = new List<GameObject>(10);
 
+    public IEnumerable<GameObject> sorted = new List<GameObject>(100);
+
     private void Awake()
     {
         GlobalCommander.Commander.RegisterInject<EnemyController>(this);
@@ -16,10 +19,24 @@ public class EnemyController : MonoBehaviour
         GlobalCommander.Commander.AddListener<LevelReadyGlobalCommand>(this, LevelReadyReact);
     }
 
-    public Vector3 GetClosestEnemy(Vector3 playerSide) //в принципе ближайший враг может быть интересен не только игроку, но и пету на его стороне
+    public bool TryGetClosestEnemy(Vector3 from, out Vector3 closestEnemyCoord ) //в принципе ближайший враг может быть интересен не только игроку, но и пету на его стороне
     {
+        closestEnemyCoord = Vector3.zero;
 
-        return default;
+        if (enemys.Count == 0)
+            return false;
+
+        sorted = enemys.OrderBy(x => Vector3.Distance(from, x.transform.position));
+
+        var closestEnemy = sorted.FirstOrDefault();
+
+        if (closestEnemy != null)
+        {
+            closestEnemyCoord = closestEnemy.transform.position;
+            return true;
+        }
+
+        return false;
     }
 
     private async void LevelReadyReact(LevelReadyGlobalCommand obj)

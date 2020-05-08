@@ -2,7 +2,7 @@
 
 namespace Behaviours
 {
-    class BallisticProjectileBehaviourContainer : MoveBehaviourContainer
+    public class BallisticProjectileBehaviourContainer : MoveBehaviourContainer
     {
         public BallisticProjectileMoveBehaviour ballisticProjectileMoveBehaviour;
         public override IMoveBehaviour GetValue => ballisticProjectileMoveBehaviour;

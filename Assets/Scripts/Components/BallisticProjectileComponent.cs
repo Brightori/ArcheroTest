@@ -4,7 +4,7 @@ namespace Components
 {
     class BallisticProjectileComponent : MonoBehaviour, IBallisticProjectile
     {
-        [SerializeField] private AnimationCurve trajectory = default;
+        [SerializeField] private float trajectoryHeight = 5;
         private Vector3 target;
 
 
@@ -16,7 +16,7 @@ namespace Components
         public float RotationSpeed => 0;
 
 
-        public AnimationCurve GetTrajectory => trajectory;
+        public float GetTrajectoryHeight => trajectoryHeight;
 
         public bool IsReady { get; private set; }
 

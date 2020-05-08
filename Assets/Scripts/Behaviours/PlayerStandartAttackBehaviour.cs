@@ -1,5 +1,4 @@
 ﻿using Components;
-using System;
 using UnityEngine;
 
 namespace Behaviours
@@ -36,15 +35,21 @@ namespace Behaviours
                         state = AttackStates.ATTACK;
                     break;
                 case AttackStates.ATTACK:
-                    var go = await attacker.GetProjectile(attacker.ShootPosition);
+                    
+                    if (!enemyController.TryGetClosestEnemy(attacker.Transform.position, out var target))
+                    {
+                        CompleteAttack();
+                        return;
+                    }
+
+                    var go = await attacker.GetProjectile(attacker.ShootPosition); //TODO переписать на пулл
 
                     if (go.TryGetComponent<IBallisticProjectile>(out var prj))
-                        SetupProjectile(prj);
+                        SetupProjectile(prj, target);
                     else
                         Debug.LogError("нет проджектайл компонента");
 
-                    nextAttackTime = Time.time + attacker.AttackInterval;
-                    state = AttackStates.WAIT;
+                    CompleteAttack();
                     break;
                 case AttackStates.ENDATTACK:
                     break;
@@ -55,12 +60,18 @@ namespace Behaviours
             }
         }
 
+        private void CompleteAttack()
+        {
+            nextAttackTime = Time.time + attacker.AttackInterval;
+            state = AttackStates.WAIT;
+        }
+
         //тут сетапим проджектайл, для демеджа и скорости проджектайла могут быть модификаторы, в будущем будем учитывать это здесь
-        private void SetupProjectile(IBallisticProjectile projectile)
+        private void SetupProjectile(IBallisticProjectile projectile, Vector3 target)
         {
             projectile.SetDmg(attacker.Dmg);
             projectile.SetMoveSpeed(attacker.AttackMoveSpeed);
-            projectile.SetTarget(enemyController.GetClosestEnemy(attacker.Transform.position));
+            projectile.SetTarget(target);
         }
     }
 }

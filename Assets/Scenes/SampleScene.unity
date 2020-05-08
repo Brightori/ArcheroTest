@@ -8,8 +8,9 @@ OcclusionCullingSettings:
     smallestOccluder: 5
     smallestHole: 0.25
     backfaceThreshold: 100
-  m_SceneGUID: 00000000000000000000000000000000
-  m_OcclusionCullingData: {fileID: 0}
+  m_SceneGUID: 9fc0d4010bbf28b4594072e72b8655ab
+  m_OcclusionCullingData: {fileID: 36300000, guid: da436c12d2fb25a4c9a5137a7043225e,
+    type: 2}
 --- !u!104 &2
 RenderSettings:
   m_ObjectHideFlags: 0
@@ -180,8 +181,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a8b3147c3e1fa84f92a23e32d7e9892, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  generateLevelConfig: {fileID: 11400000, guid: 988ec3ef514aafb4a84b03996171b043,
-    type: 2}
+  loadLevelConfig: {fileID: 11400000, guid: 92fa7dfcf0f994542b9314625983b2df, type: 2}
+  spawnActorsHeight: 1.5
 --- !u!4 &440645324
 Transform:
   m_ObjectHideFlags: 0
@@ -312,7 +313,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 724690641}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 45e653bab7fb20e499bda25e1b646fea, type: 3}
   m_Name: 
