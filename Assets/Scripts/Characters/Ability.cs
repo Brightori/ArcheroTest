@@ -2,10 +2,8 @@
 
 namespace Characters
 {
-    class Ability : Actor, ICanSetMoveBehaviour
+    class Ability : Actor
     {
-        public void InitMoveBehaviour(IMoveBehaviour moveBehaviour) => SetMoveBehaviour(moveBehaviour);
-
         protected override void Init()
         {
         }

@@ -285,7 +285,7 @@ MonoBehaviour:
   isValid: 1
   target: {fileID: 118309271}
   animationType: 3
-  targetType: 0
+  targetType: 11
   forcedTargetType: 0
   autoPlay: 0
   useTargetAsV3: 0
@@ -390,7 +390,7 @@ MonoBehaviour:
   isValid: 1
   target: {fileID: 118309271}
   animationType: 1
-  targetType: 0
+  targetType: 11
   forcedTargetType: 0
   autoPlay: 0
   useTargetAsV3: 0

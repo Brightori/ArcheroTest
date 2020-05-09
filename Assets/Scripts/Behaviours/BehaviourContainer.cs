@@ -10,7 +10,7 @@ namespace Behaviours
 
     public abstract class MoveBehaviourContainer : BehaviourContainer<IMoveBehaviour> 
     {
-        private ICanSetMoveBehaviour behaviourOwner;
+        private ICanSetBehaviour behaviourOwner;
 
         private void Awake()
         {
@@ -19,7 +19,7 @@ namespace Behaviours
                 Init();
 
                 if (GetValue != null)
-                    behaviourOwner.InitMoveBehaviour(GetValue);
+                    behaviourOwner.AddBehaviour(GetValue);
                 else
                     Debug.LogError("нет поведения перемещения в контейнере " + gameObject.name);
             }

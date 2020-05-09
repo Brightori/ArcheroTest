@@ -4,6 +4,18 @@
         <name>DemiLib</name>
     </assembly>
     <members>
+        <member name="T:DG.DemiLib.Attributes.DeScriptExecutionOrderAttribute">
+            <summary>
+            <code>Class attribute</code><para/>
+            Sets the script execution order index
+            </summary>
+        </member>
+        <member name="M:DG.DemiLib.Attributes.DeScriptExecutionOrderAttribute.#ctor(System.Int32)">
+            <summary>
+            Sets the script execution order for this class
+            </summary>
+            <param name="order">Script execution order index</param>
+        </member>
         <member name="F:DG.DemiLib.Core.GUIUtils.isProSkin">
             <summary>
             Set when calling <code>DeGUI.BeginGUI</code>
@@ -39,6 +51,17 @@
             <summary>
             Content colors
             </summary>
+        </member>
+        <member name="T:DG.DemiLib.DeInputUtils">
+            <summary>
+            Various Input utils
+            </summary>
+        </member>
+        <member name="M:DG.DemiLib.DeInputUtils.IsNumKeyDown">
+            <summary>
+            Returns a number key int if a number key was pressed in this frame, or -1 otherwise
+            </summary>
+            <returns></returns>
         </member>
         <member name="T:DG.DemiLib.DeScope">
              <summary>
@@ -90,14 +113,29 @@
             If the item exists sets it, otherwise first creates it and then sets it
             </summary>
         </member>
+        <member name="M:DG.DemiLib.External.DeHierarchyComponent.StoreItemSeparator(UnityEngine.GameObject,System.Nullable{DG.DemiLib.External.DeHierarchyComponent.SeparatorType},System.Nullable{DG.DemiLib.External.DeHierarchyComponent.HColor})">
+            <summary>
+            If the item exists sets it, otherwise first creates it and then sets it
+            </summary>
+        </member>
         <member name="M:DG.DemiLib.External.DeHierarchyComponent.RemoveItemData(UnityEngine.GameObject)">
             <summary>
             Returns TRUE if the item existed and was removed.
             </summary>
         </member>
+        <member name="M:DG.DemiLib.External.DeHierarchyComponent.ResetSeparator(UnityEngine.GameObject)">
+            <summary>
+            Returns TRUE if the item existed and was changed.
+            </summary>
+        </member>
         <member name="M:DG.DemiLib.External.DeHierarchyComponent.GetItem(UnityEngine.GameObject)">
             <summary>
             Returns the customizedItem for the given gameObject, or NULL if none was found
+            </summary>
+        </member>
+        <member name="M:DG.DemiLib.External.DeHierarchyComponent.GetColor(DG.DemiLib.External.DeHierarchyComponent.HColor)">
+            <summary>
+            Returns the color corresponding to the given <see cref="T:DG.DemiLib.External.DeHierarchyComponent.HColor"/>
             </summary>
         </member>
         <member name="P:DG.DemiLib.IEditorGUINode.id">
@@ -131,6 +169,9 @@
             Returns a random value within this range (min/max included)
             </summary>
         </member>
+        <member name="M:DG.DemiLib.IntRange.ToString">
+            <inheritdoc />
+        </member>
         <member name="T:DG.DemiLib.Range">
             <summary>
             A serializable struct including a min and a max float value
@@ -151,6 +192,9 @@
             <summary>
             Returns a random value within this range (min/max included)
             </summary>
+        </member>
+        <member name="M:DG.DemiLib.Range.ToString">
+            <inheritdoc />
         </member>
     </members>
 </doc>

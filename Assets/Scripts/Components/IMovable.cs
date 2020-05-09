@@ -6,11 +6,16 @@ namespace Components
     {
     }
 
-    public interface IMoveAndRotate : IMovable, IHaveRotationSpeed
+    public interface IMoveAndRotate : IMovable, IHaveRotationSpeed, IHaveStoppingDistance
     {
     }
 
-    public enum MoveStates { DEFAULT, WAIT, PATROL, MOVE, PAUSE, UNPAUSE, COMPLETE }
+    public interface IHaveStoppingDistance
+    {
+        float StoppingDistance { get; }
+    }
+
+    public enum MoveStates { DEFAULT, WAIT, MOVE, PAUSE, UNPAUSE, COMPLETE }
 
     public interface IHaveTransform
     {

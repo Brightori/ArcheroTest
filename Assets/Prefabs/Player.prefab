@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 2571821677391004814}
   - component: {fileID: 2571821677391004801}
   - component: {fileID: 2571821677391004800}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -141,6 +141,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 3
   rotationSpeed: 3
+  stoppingDistance: 0.1
 --- !u!114 &2571821677391004800
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -171,7 +172,7 @@ GameObject:
   - component: {fileID: 2571821679480114702}
   - component: {fileID: 2571821679480114703}
   - component: {fileID: 2571821679480114700}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}

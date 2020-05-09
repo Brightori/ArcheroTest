@@ -299,6 +299,7 @@ GameObject:
   m_Component:
   - component: {fileID: 724690643}
   - component: {fileID: 724690642}
+  - component: {fileID: 724690644}
   m_Layer: 0
   m_Name: VirtualCam
   m_TagString: Untagged
@@ -349,13 +350,25 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 724690641}
   m_LocalRotation: {x: -0.48615676, y: -0.0000005237666, z: 0.0000009273944, w: -0.8738716}
-  m_LocalPosition: {x: 6.22, y: 31.94276, z: -0.65899944}
+  m_LocalPosition: {x: 0.99999857, y: 31.94276, z: -0.65899944}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1137700362}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &724690644
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 724690641}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fda5ddf2b7a098f4eb76082df5603083, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &772014404
 GameObject:
   m_ObjectHideFlags: 0
@@ -464,7 +477,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: -0.48615676, y: -0.0000005237666, z: 0.0000009273944, w: -0.8738716}
-  m_LocalPosition: {x: 6.22, y: 31.94276, z: -0.65899944}
+  m_LocalPosition: {x: 0.99999857, y: 31.94276, z: -0.65899944}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -548,6 +561,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnConfig: {fileID: 11400000, guid: b61a92f0f1fceef4d974042014dbb271, type: 2}
+  enemys: []
 --- !u!1 &1079726724
 GameObject:
   m_ObjectHideFlags: 0
@@ -680,7 +694,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 0
-  m_FollowOffset: {x: 0, y: 29.85, z: -11.969}
+  m_FollowOffset: {x: -5.220001, y: 29.85, z: -11.969}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
@@ -744,6 +758,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2571821677391004800, guid: 7fcaae1a737255949916f1574318659e,
+        type: 3}
+      propertyPath: dmg
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 2571821677391004808, guid: 7fcaae1a737255949916f1574318659e,
         type: 3}
       propertyPath: m_Name

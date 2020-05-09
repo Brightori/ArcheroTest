@@ -1,16 +1,13 @@
 ﻿using Components;
 using UnityEngine;
 using Behaviours;
+using System.Collections.Generic;
 
 namespace Characters
 {
-    public abstract class Actor: MonoBehaviour, ICanBePaused 
+    public abstract class Actor: MonoBehaviour, ICanBePaused, ICanSetBehaviour
     {
-        private IAttackBehaviour attackBehaviour;
-        private IMoveBehaviour moveBehaviour;
-
-        protected bool isHaveAttack { get; private set; }
-        protected bool isHaveMove { get; private set; }
+        private List<IBehaviour> behaviours = new List<IBehaviour>(20);
 
         private void Start()
         {
@@ -20,57 +17,27 @@ namespace Characters
 
         protected abstract void Init();
 
-        protected void SetAttackBehaviour(IAttackBehaviour attackBehaviour) 
+        public void AddBehaviour(IBehaviour behaviour) 
         {
-            if (attackBehaviour == null)
-            {
-                Debug.LogError("нет валидного аттак бихейвера " + gameObject.name);
+            if (behaviours.Contains(behaviour))
                 return;
-            }
-
-            if (this.attackBehaviour != null)
-                this.attackBehaviour.Dispose();
-
-            this.attackBehaviour = attackBehaviour;
-            isHaveAttack = true;
-        }
-
-        protected void SetMoveBehaviour(IMoveBehaviour moveBehaviour)
-        {
-            if (moveBehaviour == null)
-            {
-                Debug.LogError("нет валидного мув бихейвера на  " + gameObject.name);
-                return;
-            }
-
-            if (this.moveBehaviour != null)
-                this.moveBehaviour.Dispose();
-
-            this.moveBehaviour = moveBehaviour;
-            isHaveMove = true;
+            behaviours.Add(behaviour);
         }
 
         protected virtual void Update()
         {
-            if (isHaveAttack)
-                attackBehaviour.Update();
-
-            if (isHaveMove)
-                moveBehaviour.Update();
+            for (int i = 0; i < behaviours.Count; i++)
+                behaviours[i].Update();
         }
 
         public void SetPause(bool state)
         {
             if (state)
-            {
-                attackBehaviour.Pause();
-                moveBehaviour.Pause();
-            }
+                foreach (var b in behaviours)
+                    b.Pause();
             else
-            {
-                attackBehaviour.UnPause();
-                moveBehaviour.UnPause();
-            }
+                foreach (var b in behaviours)
+                    b.UnPause();
         }
     }
 

@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: DOTweenSettings
   m_EditorClassIdentifier: 
   useSafeMode: 1
+  safeModeOptions:
+    nestedTweenFailureBehaviour: 0
   timeScale: 1
   useSmoothDeltaTime: 0
   maxSmoothUnscaledTime: 0.15
@@ -29,13 +31,16 @@ MonoBehaviour:
   defaultEasePeriod: 0
   defaultAutoKill: 1
   defaultLoopType: 0
+  debugMode: 0
+  debugStoreTargetId: 0
+  showPreviewPanel: 1
   storeSettingsLocation: 0
   modules:
     showPanel: 0
     audioEnabled: 1
     physicsEnabled: 1
-    physics2DEnabled: 0
-    spriteEnabled: 0
+    physics2DEnabled: 1
+    spriteEnabled: 1
     uiEnabled: 1
     textMeshProEnabled: 1
     tk2DEnabled: 0

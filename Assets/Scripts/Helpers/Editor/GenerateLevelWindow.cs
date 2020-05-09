@@ -11,6 +11,11 @@ public class GenerateLevelWindow : EditorWindow
         GetWindow<GenerateLevelWindow>();
     }
 
+    private void OnEnable()
+    {
+        ShowModal();
+    }
+
     private void OnGUI()
     {
         generateConfigRef = EditorGUILayout.ObjectField(generateConfigRef, typeof(GenerateLevelConfig), true);

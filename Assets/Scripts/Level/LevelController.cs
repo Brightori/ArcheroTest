@@ -1,6 +1,8 @@
 ﻿using Components;
 using Configs;
 using GlobalCommander;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Assertions;
 
@@ -13,6 +15,7 @@ public class LevelController : MonoBehaviour
     private LevelComponent currentLevel;
 
     public FloorComponent[] Floor => currentLevel.floorComponents;
+    private IEnumerable<FloorComponent> selectedTiles = new List<FloorComponent>(20);
 
     public async void Awake()
     {
@@ -20,6 +23,18 @@ public class LevelController : MonoBehaviour
         Assert.IsNotNull(loadLevelConfig, "нет конфига загрузки уровней");
         currentLevel = await loadLevelConfig.GetLevelByIndex(currentLvlIndex);
         Commander.Invoke(new LevelReadyGlobalCommand());
+    }
+
+    public Vector3 GetRandomAvailablePosition(Vector3 position, float distance)
+    {
+        selectedTiles = Floor.Where(x => Vector3.Distance(position, x.transform.position) < distance);
+        
+        if (selectedTiles == null || selectedTiles.Count() == 0)
+            return position;
+
+        var rnd = Random.Range(0, selectedTiles.Count());
+
+        return selectedTiles.ElementAt(rnd).transform.position;
     }
 
     public Vector3 GetRandomAvailablePosition()

@@ -17,6 +17,7 @@ public class EnemyController : MonoBehaviour
         GlobalCommander.Commander.RegisterInject<EnemyController>(this);
         GlobalCommander.Commander.Inject((LevelController ctr) => levelController = ctr);
         GlobalCommander.Commander.AddListener<LevelReadyGlobalCommand>(this, LevelReadyReact);
+        GlobalCommander.Commander.RecieveRegisterObject(this, enemys);
     }
 
     public bool TryGetClosestEnemy(Vector3 from, out Vector3 closestEnemyCoord ) //в принципе ближайший враг может быть интересен не только игроку, но и пету на его стороне

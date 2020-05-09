@@ -2,11 +2,10 @@
 
 namespace Components
 {
-    class BallisticProjectileComponent : MonoBehaviour, IBallisticProjectile
+    class BallisticProjectileComponent : MonoBehaviour, IBallisticProjectile, IDmg
     {
         [SerializeField] private float trajectoryHeight = 5;
         private Vector3 target;
-
 
         public float Dmg { get; private set; } = 0;
         public float MoveSpeed { get; private set; } = 1;

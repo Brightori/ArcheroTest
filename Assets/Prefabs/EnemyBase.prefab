@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5080313278751983849}
   - component: {fileID: 3805724722577443640}
   - component: {fileID: 8923841468304667675}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -105,7 +105,7 @@ GameObject:
   - component: {fileID: 3595932989113544083}
   - component: {fileID: 4632379480908964853}
   - component: {fileID: 4296153304417334910}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Sphere (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -202,7 +202,9 @@ GameObject:
   - component: {fileID: -7073328157295405636}
   - component: {fileID: 5951750466222857498}
   - component: {fileID: 8197842645634955768}
-  m_Layer: 0
+  - component: {fileID: 7092215954137425872}
+  - component: {fileID: 8646221945769252277}
+  m_Layer: 8
   m_Name: EnemyBase
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -341,3 +343,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 3
   rotationSpeed: 3
+  stoppingDistance: 0.1
+--- !u!114 &7092215954137425872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8333325881418533765}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e4edb983c6e46e469aed3c3628e057c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8646221945769252277
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8333325881418533765}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 550f2d412d45fd8459cfb7e685a1e526, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 10
+  maxHealth: 10

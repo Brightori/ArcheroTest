@@ -3,10 +3,12 @@ using UnityEngine;
 
 namespace Components
 {
-    public interface ICanAttack : IDmg, IAttackInterval, IAttackProjectile, IAttackMoveSpeed, IShootPosition, IHaveTransform
+    public interface ICanAttack : IComponent, IDmg, IAttackInterval, IAttackProjectile, IAttackMoveSpeed, IShootPosition, IHaveTransform
     {
         bool IsReadyForAttack { get; }
     }
+
+    public interface IComponent { }
 
     public interface IShootPosition
     {
@@ -18,14 +20,14 @@ namespace Components
         float AttackMoveSpeed { get; }
     }
 
-    public interface IBallisticProjectile : IDmg, IMovable, IHaveTrajectory, IReady, IHaveTarget
+    public interface IBallisticProjectile : IComponent, IDmg, IMovable, IHaveTrajectory, IReady, IHaveTarget
     {
         void SetDmg(float dmg);
         void SetMoveSpeed(float moveSpeed);
         void SetTarget(Vector3 target);
     }
 
-    public interface IHaveTarget
+    public interface IHaveTarget  
     {
         Vector3 Target { get; }
     }

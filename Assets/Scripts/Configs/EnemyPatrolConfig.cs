@@ -6,11 +6,11 @@ namespace Configs
     public class EnemyPatrolConfig : ScriptableObject
     {
         [SerializeField] private float patrolRange = 5;
-        [SerializeField] private float waitBeforeNextpatrol = 1; 
+        [SerializeField] private Vector2 waitBeforeNextpatrol = new Vector2(1,5); 
         [SerializeField] private bool patrolRandom = false;
 
         public float PatrolRange => patrolRange;
-        public float WaitBeforeNextpatrol => waitBeforeNextpatrol;
+        public float WaitBeforeNextpatrol => Random.Range(waitBeforeNextpatrol.x, waitBeforeNextpatrol.y);
         public bool PatrolRandom => patrolRandom;
     }
 }

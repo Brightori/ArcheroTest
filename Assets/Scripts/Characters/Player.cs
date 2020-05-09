@@ -8,12 +8,12 @@ namespace Characters
         protected override void Init()
         {
             if (TryGetComponent<IMoveAndRotate>(out var movable))
-                SetMoveBehaviour(new PlayerStandartMoveBehaviour(movable));
+                AddBehaviour(new PlayerStandartMoveBehaviour(movable));
             else
                 Debug.LogError("нет компонента перемещения у " + gameObject.name); 
             
             if (TryGetComponent<ICanAttack>(out var attacker))
-                SetAttackBehaviour(new PlayerStandartAttackBehaviour(attacker));
+                AddBehaviour(new PlayerStandartAttackBehaviour(attacker));
             else
                 Debug.LogError("нет компонента атаки у " + gameObject.name);
         }
