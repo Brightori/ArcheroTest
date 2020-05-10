@@ -1,12 +1,14 @@
 ﻿using DG.Tweening;
-using System;
 using UnityEngine;
 
 namespace Components
 {
     public class CameraShakeComponent : MonoBehaviour
     {
-        // Start is called before the first frame update
+        [SerializeField] float amount = 1.0f;
+        [SerializeField] float timeOfShake = 1;
+        [SerializeField] int vibration = 5;
+
         void Start()
         {
             GlobalCommander.Commander.AddListener<ShakeCameraGlobalCommand>(this, ShakeCameraReact);
@@ -14,7 +16,7 @@ namespace Components
 
         private void ShakeCameraReact(ShakeCameraGlobalCommand obj)
         {
-            transform.DOShakePosition(0.5f, 1, 5);
+            transform.DOShakePosition(timeOfShake, amount, vibration);
         }
     }
 

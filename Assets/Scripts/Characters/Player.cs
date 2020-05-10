@@ -7,6 +7,8 @@ namespace Characters
     {
         protected override void Init()
         {
+            GlobalCommander.Commander.RegisterInject<Player>(this);
+
             if (TryGetComponent<IMoveAndRotate>(out var movable))
                 AddBehaviour(new PlayerStandartMoveBehaviour(movable));
             else
