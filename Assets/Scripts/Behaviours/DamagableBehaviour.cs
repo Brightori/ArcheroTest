@@ -1,4 +1,5 @@
 ﻿using Characters;
+using Commands;
 using Components;
 using UnityEngine;
 using UnityEngine.Assertions;
@@ -8,6 +9,8 @@ namespace Behaviours
     class DamagableBehaviour : MonoBehaviour, IDamagableBehaviour
     {
         private IHealthComponent healthComponent;
+
+        public IActor Actor { get; set; }
 
         private void Awake()
         {
@@ -48,6 +51,10 @@ namespace Behaviours
         }
 
         void IBehaviour.Update()
+        {
+        }
+
+        public void CommandBehavaiour(ICommand command)
         {
         }
     }

@@ -1,11 +1,11 @@
-﻿using Components;
-using UnityEngine;
-using Behaviours;
+﻿using Behaviours;
+using Commands;
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace Characters
 {
-    public abstract class Actor: MonoBehaviour, ICanBePaused, ICanSetBehaviour
+    public abstract class Actor: MonoBehaviour, ICanBePaused, ICanSetBehaviour, IActor
     {
         private List<IBehaviour> behaviours = new List<IBehaviour>(20);
 
@@ -22,6 +22,7 @@ namespace Characters
             if (behaviours.Contains(behaviour))
                 return;
             behaviours.Add(behaviour);
+            behaviour.Actor = this;
         }
 
         protected virtual void Update()
@@ -39,10 +40,21 @@ namespace Characters
                 foreach (var b in behaviours)
                     b.UnPause();
         }
+
+        public void Command(ICommand command)
+        {
+            foreach (var b in behaviours)
+                b.CommandBehavaiour(command);
+        }
     }
 
     public interface ICanBePaused
     {
         void SetPause(bool state);
+    }
+
+    public interface IActor
+    {
+        void Command(ICommand command);
     }
 }

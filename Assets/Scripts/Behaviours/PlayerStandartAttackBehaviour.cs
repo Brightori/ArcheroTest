@@ -1,4 +1,5 @@
-﻿using Components;
+﻿using Commands;
+using Components;
 using UnityEngine;
 
 namespace Behaviours
@@ -41,6 +42,8 @@ namespace Behaviours
                         CompleteAttack();
                         return;
                     }
+
+                    Actor.Command(new RotateToTargetCommand { Target = target });
 
                     var go = await attacker.GetProjectile(attacker.ShootPosition); //TODO переписать на пулл
 
