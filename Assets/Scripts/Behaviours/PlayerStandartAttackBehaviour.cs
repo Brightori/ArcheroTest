@@ -72,6 +72,7 @@ namespace Behaviours
         //тут сетапим проджектайл, для демеджа и скорости проджектайла могут быть модификаторы, в будущем будем учитывать это здесь
         private void SetupProjectile(IBallisticProjectile projectile, Vector3 target)
         {
+            projectile.DmgOwner = DmgOwner.PLAYERSIDE;
             projectile.SetDmg(attacker.Dmg);
             projectile.SetMoveSpeed(attacker.AttackMoveSpeed);
             projectile.SetTarget(target);

@@ -204,8 +204,9 @@ GameObject:
   - component: {fileID: 8197842645634955768}
   - component: {fileID: 7092215954137425872}
   - component: {fileID: 8646221945769252277}
+  - component: {fileID: 4062810947715166969}
   m_Layer: 8
-  m_Name: EnemyBase
+  m_Name: EnemyBaseRandomMove
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -370,3 +371,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 10
   maxHealth: 10
+--- !u!114 &4062810947715166969
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8333325881418533765}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74b5f12e9be7a6343af7a1ae153dfb47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coinNumbers: 3

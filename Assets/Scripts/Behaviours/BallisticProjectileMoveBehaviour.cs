@@ -1,4 +1,5 @@
-﻿using Components;
+﻿using Commands;
+using Components;
 using UnityEngine;
 
 namespace Behaviours
@@ -57,7 +58,10 @@ namespace Behaviours
             movable.Transform.position += Vector3.up * movable.GetTrajectoryHeight * (1f - trajectoryCoeff * trajectoryCoeff);
 
             if (endProgress >= 1)
+            {
+                Actor.Command(new CleanCommand());
                 state = MoveStates.COMPLETE;
+            }
         }
     }
 }

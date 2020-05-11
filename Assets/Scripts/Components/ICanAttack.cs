@@ -45,6 +45,7 @@ namespace Components
     public interface IDmg
     {
         float Dmg { get; }
+        DmgOwner DmgOwner { get; set; }
     }
 
     public interface IAttackInterval
@@ -56,4 +57,6 @@ namespace Components
     {
         Task<GameObject> GetProjectile(Vector3 position);
     }
+
+    public enum DmgOwner {DEFAULT, PLAYERSIDE, ENEMYSIDE }
 }

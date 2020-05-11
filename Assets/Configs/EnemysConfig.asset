@@ -12,9 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f519e9a561b30af49b968ce3a807cd49, type: 3}
   m_Name: EnemysConfig
   m_EditorClassIdentifier: 
-  enemysCount: 3
+  enemysCount: 6
   enemyContainers:
   - Name: BaseEnemy
     EnemyPrfb:
       m_AssetGUID: de96c12ad67f88f48a692e0c8a963c9d
+      m_SubObjectName: 
+  - Name: BaseEnemyPatrolLane
+    EnemyPrfb:
+      m_AssetGUID: 948a4ebc57df81e41a5c29f076565084
       m_SubObjectName: 

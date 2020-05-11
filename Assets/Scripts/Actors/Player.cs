@@ -1,9 +1,9 @@
 ﻿using Behaviours;
 using Components;
 using UnityEngine;
-namespace Characters
+namespace Actors
 {
-    public class Player : Actor
+    public class Player : Actor, IPlayer
     {
         protected override void Init()
         {
@@ -20,4 +20,6 @@ namespace Characters
                 Debug.LogError("нет компонента атаки у " + gameObject.name);
         }
     }
+
+    public interface IPlayer : IActor { }
 }

@@ -12,6 +12,7 @@ namespace Components
         [SerializeField] private float attackInterval = 0.3f;
         [SerializeField] private AssetReference projectile = default;
         [SerializeField] private float attackMoveSpeed = 3;
+        [SerializeField] private DmgOwner dmgOwner = DmgOwner.DEFAULT;
 
         public float Dmg => dmg;
         public float AttackInterval => attackInterval;
@@ -22,6 +23,8 @@ namespace Components
         public Vector3 ShootPosition => transform.position;  //TODO сюда прописать в итоге оружие в руках
 
         public Transform Transform => transform;
+
+        public DmgOwner DmgOwner { get => dmgOwner; set => dmgOwner = value; }
 
         private void Awake()
         {

@@ -1,11 +1,12 @@
 ﻿using Behaviours;
 using Commands;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Characters
+namespace Actors
 {
-    public abstract class Actor: MonoBehaviour, ICanBePaused, ICanSetBehaviour, IActor
+    public abstract class Actor: MonoBehaviour, IActor
     {
         private List<IBehaviour> behaviours = new List<IBehaviour>(20);
 
@@ -46,6 +47,14 @@ namespace Characters
             foreach (var b in behaviours)
                 b.CommandBehavaiour(command);
         }
+
+        public void Dispose()
+        {
+            foreach (var b in behaviours)
+                b.Dispose();
+
+            Destroy(gameObject);
+        }
     }
 
     public interface ICanBePaused
@@ -53,7 +62,7 @@ namespace Characters
         void SetPause(bool state);
     }
 
-    public interface IActor
+    public interface IActor : IDisposable, ICanBePaused, ICanSetBehaviour
     {
         void Command(ICommand command);
     }

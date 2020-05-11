@@ -1,6 +1,6 @@
 ﻿using Behaviours;
 
-namespace Characters
+namespace Actors
 {
     class Ability : Actor
     {

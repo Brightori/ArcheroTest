@@ -14,6 +14,8 @@ namespace Components
         public bool IsReady { get; private set; }
         public Vector3 Target => target;
 
+        public DmgOwner DmgOwner { get; set; } = DmgOwner.DEFAULT;
+
         public void SetDmg(float dmg)
         {
             Dmg = dmg;

@@ -2,7 +2,7 @@
 using Components;
 using UnityEngine;
 
-namespace Characters
+namespace Actors
 {
     class Enemy : Actor
     {

@@ -33,24 +33,10 @@ namespace Behaviours
             switch (state)
             {
                 case MoveStates.DEFAULT:
-                    startPosition = movable.Transform.position;
-                    var tiletarget = levelController.GetRandomAvailablePosition(movable.Transform.position, enemyPatrolConfig.PatrolRange);
-                    target = new Vector3(tiletarget.x, movable.Transform.position.y, tiletarget.z);
-                    state = MoveStates.MOVE;
+                    DefailtLogic();
                     break;
                 case MoveStates.WAIT:
-
-                    if (waitPeriod > Time.time)
-                        return;
-
-                    if (enemyPatrolConfig.PatrolRandom)
-                    {
-                        state = MoveStates.DEFAULT;
-                        return;
-                    }
-                    var temp = target;
-                    target = startPosition;
-                    startPosition = temp;
+                    Wait();
                     break;
                 case MoveStates.MOVE:
                     if (Move())
@@ -63,6 +49,30 @@ namespace Behaviours
                 case MoveStates.UNPAUSE:
                     break;
             }
+        }
+
+        private void DefailtLogic()
+        {
+            startPosition = movable.Transform.position;
+            var tiletarget = levelController.GetRandomAvailablePosition(movable.Transform.position, enemyPatrolConfig.PatrolRange);
+            target = new Vector3(tiletarget.x, movable.Transform.position.y, tiletarget.z);
+            state = MoveStates.MOVE;
+        }
+
+        private void Wait()
+        {
+            if (waitPeriod > Time.time)
+                return;
+
+            if (enemyPatrolConfig.PatrolRandom)
+            {
+                state = MoveStates.DEFAULT;
+                return;
+            }
+            var temp = target;
+            target = startPosition;
+            startPosition = temp;
+            state = MoveStates.MOVE;
         }
 
         private bool Move()

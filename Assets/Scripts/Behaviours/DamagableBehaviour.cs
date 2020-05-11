@@ -1,8 +1,9 @@
-﻿using Characters;
+﻿using Actors;
 using Commands;
 using Components;
 using UnityEngine;
 using UnityEngine.Assertions;
+using static CoinSpawnerContoller;
 
 namespace Behaviours
 {
@@ -32,7 +33,10 @@ namespace Behaviours
                 GlobalCommander.Commander.Invoke(new ShakeCameraGlobalCommand());
 
                 if (healthComponent.IsDead)
+                {
+                    Actor.Command(new ActorDeadCommand());
                     Dispose();
+                }
             }
         }
 

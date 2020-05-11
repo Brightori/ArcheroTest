@@ -10,7 +10,15 @@ namespace Configs
         [SerializeField] private int enemysCount = 3;
         [SerializeField] private EnemyContainer[] enemyContainers = default;
 
+        public EnemyContainer[] EnemyContainers { get => enemyContainers; }
+
         public int EnemysCount => enemysCount;
+
+
+        private void OnEnable()
+        {
+          
+        }
 
         public async Task<GameObject> GetRandomEnemy(Vector3 position)
         {

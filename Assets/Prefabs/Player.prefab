@@ -140,7 +140,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 3
-  rotationSpeed: 8
+  rotationSpeed: 25
   stoppingDistance: 0.1
 --- !u!114 &2571821677391004800
 MonoBehaviour:
@@ -160,6 +160,7 @@ MonoBehaviour:
     m_AssetGUID: 2e779b74a3d8e4b4982017694a5547b0
     m_SubObjectName: 
   attackMoveSpeed: 3
+  dmgOwner: 1
 --- !u!1 &2571821679480114698
 GameObject:
   m_ObjectHideFlags: 0

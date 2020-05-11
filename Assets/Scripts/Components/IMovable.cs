@@ -2,12 +2,19 @@
 
 namespace Components
 {
-    public interface IMovable : IHaveTransform, IHaveMoveSpeed 
+    public interface IMovable : IHaveTransform, IHaveMoveSpeed
     {
     }
 
     public interface IMoveAndRotate : IMovable, IHaveRotationSpeed, IHaveStoppingDistance
     {
+    }
+
+    public interface IBounceMove : IMovable, IHaveRotationSpeed
+    {
+        Rigidbody Rigidbody { get; }
+        float BounceRadius { get; }
+        float Force { get; }
     }
 
     public interface IHaveStoppingDistance
